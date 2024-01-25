@@ -327,6 +327,10 @@ h1 {
   width: 3em;
 }
 
+#scale {
+  z-index: 1;
+}
+
 .scale-marker {
   width: 150px;
   border-top: 1px solid white;
