@@ -1,0 +1,340 @@
+:root {
+  /* Actual mean diameters in km */
+  --sun-diameter: 1391400;
+  --mercury-diameter: 4879;
+  --venus-diameter: 12104;
+  --earth-diameter: 12742;
+  --moon-diameter: 3475;
+  --mars-diameter: 6779;
+  --jupiter-diameter: 139822;
+  --saturn-diameter: 116464;
+  --uranus-diameter: 50724;
+  --neptune-diameter: 49244;
+
+  /* Actual distances of planets from the Sun in km */
+  --sun-mercury-distance: 57909000;
+  --sun-venus-distance: 108208925;
+  --sun-earth-distance: 149597871;
+  --sun-mars-distance: 227956000;
+  --sun-jupiter-distance: 778479000;
+  --sun-saturn-distance: 1432041000;
+  --sun-uranus-distance: 2867043000;
+  --sun-neptune-distance: 4514953000;
+
+  /* Actual distances from Earth in km */
+  --earth-moon-distance: 384400;
+
+  /* Scale from km to px */
+  --scale-factor: 0.0007848061529; /* Earth being 10 px wide */
+
+  /* Set to 0 to remove distances between planets */
+  --distance-multiplier: 1;
+
+  /* Sizes in px */
+  --sun-size-px: calc(var(--sun-diameter) * var(--scale-factor) * 1px);
+  --mercury-size-px: calc(var(--mercury-diameter) * var(--scale-factor) * 1px);
+  --venus-size-px: calc(var(--venus-diameter) * var(--scale-factor) * 1px);
+  --earth-size-px: calc(var(--earth-diameter) * var(--scale-factor) * 1px);
+  --moon-size-px: calc(var(--moon-diameter) * var(--scale-factor) * 1px);
+  --mars-size-px: calc(var(--mars-diameter) * var(--scale-factor) * 1px);
+  --jupiter-size-px: calc(var(--jupiter-diameter) * var(--scale-factor) * 1px);
+  --saturn-size-px: calc(var(--saturn-diameter) * var(--scale-factor) * 1px);
+  --uranus-size-px: calc(var(--uranus-diameter) * var(--scale-factor) * 1px);
+  --neptune-size-px: calc(var(--neptune-diameter) * var(--scale-factor) * 1px);
+
+  /* Positions relative to the Sun in px */
+  --sun-position-px: 0px;
+  --mercury-position-px: calc(
+    var(--sun-mercury-distance) * var(--scale-factor) *
+      var(--distance-multiplier) * 1px
+  );
+  --venus-position-px: calc(
+    var(--sun-venus-distance) * var(--scale-factor) * var(--distance-multiplier) *
+      1px
+  );
+  --earth-position-px: calc(
+    var(--sun-earth-distance) * var(--scale-factor) * var(--distance-multiplier) *
+      1px
+  );
+  --moon-position-px: calc(
+    (var(--sun-earth-distance) - var(--earth-moon-distance)) *
+      var(--scale-factor) * var(--distance-multiplier) * 1px
+  );
+  --mars-position-px: calc(
+    var(--sun-mars-distance) * var(--scale-factor) * var(--distance-multiplier) *
+      1px
+  );
+  --jupiter-position-px: calc(
+    var(--sun-jupiter-distance) * var(--scale-factor) *
+      var(--distance-multiplier) * 1px
+  );
+  --saturn-position-px: calc(
+    var(--sun-saturn-distance) * var(--scale-factor) *
+      var(--distance-multiplier) * 1px
+  );
+  --uranus-position-px: calc(
+    var(--sun-uranus-distance) * var(--scale-factor) *
+      var(--distance-multiplier) * 1px
+  );
+  --neptune-position-px: calc(
+    var(--sun-neptune-distance) * var(--scale-factor) *
+      var(--distance-multiplier) * 1px
+  );
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4rem;
+}
+
+body {
+  margin: 1rem;
+  font-family: sans-serif;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1 {
+  margin-block: 0;
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
+.fixed-pane {
+  position: fixed;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 2rem);
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  z-index: 1;
+}
+
+#page-header {
+  top: 0;
+}
+
+#page-footer {
+  bottom: 0;
+}
+
+#sphere-links {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sphere-links li {
+  margin-left: 1rem;
+}
+
+#solar-system {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.sphere-with-label {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  color: white;
+}
+
+.sphere-with-label h1 {
+  width: 200px;
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.sphere-with-label .sphere-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.sphere-with-label .sphere {
+  border-radius: 50%;
+  margin: 0;
+}
+
+.sun {
+  top: var(--sun-position-px);
+}
+
+.mercury {
+  top: var(--mercury-position-px);
+}
+
+.venus {
+  top: var(--venus-position-px);
+}
+
+.moon {
+  top: var(--moon-position-px);
+}
+
+.earth {
+  top: var(--earth-position-px);
+}
+
+.mars {
+  top: var(--mars-position-px);
+}
+
+.jupiter {
+  top: var(--jupiter-position-px);
+}
+
+.saturn {
+  top: var(--saturn-position-px);
+}
+
+.uranus {
+  top: var(--uranus-position-px);
+}
+
+.neptune {
+  top: var(--neptune-position-px);
+}
+
+.sphere-sun {
+  width: var(--sun-size-px);
+  height: var(--sun-size-px);
+  line-height: var(--sun-size-px);
+  background: radial-gradient(
+    circle at calc(var(--sun-size-px) / 3) calc(var(--sun-size-px) / 3),
+    #ecc74f,
+    #4b230d
+  );
+}
+
+.sphere-mercury {
+  width: var(--mercury-size-px);
+  height: var(--mercury-size-px);
+  line-height: var(--mercury-size-px);
+  background: radial-gradient(
+    circle at calc(var(--mercury-size-px) / 3) calc(var(--mercury-size-px) / 3),
+    #777570,
+    #4b4542
+  );
+}
+
+.sphere-venus {
+  width: var(--venus-size-px);
+  height: var(--venus-size-px);
+  line-height: var(--venus-size-px);
+  background: radial-gradient(
+    circle at calc(var(--venus-size-px) / 3) calc(var(--venus-size-px) / 3),
+    #f67002,
+    #62310d
+  );
+}
+
+.sphere-moon {
+  width: var(--moon-size-px);
+  height: var(--moon-size-px);
+  line-height: var(--moon-size-px);
+  background-color: #797a7c;
+}
+
+.sphere-earth {
+  width: var(--earth-size-px);
+  height: var(--earth-size-px);
+  line-height: var(--earth-size-px);
+  background: radial-gradient(
+    circle at calc(var(--earth-size-px) / 3) calc(var(--earth-size-px) / 3),
+    #4d8bdc,
+    #183e8f
+  );
+}
+
+.sphere-mars {
+  width: var(--mars-size-px);
+  height: var(--mars-size-px);
+  line-height: var(--mars-size-px);
+  background: radial-gradient(
+    circle at calc(var(--mars-size-px) / 3) calc(var(--mars-size-px) / 3),
+    #bb7b3a,
+    #5d3620
+  );
+}
+
+.sphere-jupiter {
+  width: var(--jupiter-size-px);
+  height: var(--jupiter-size-px);
+  line-height: var(--jupiter-size-px);
+  background: radial-gradient(
+    circle at calc(var(--jupiter-size-px) / 3) calc(var(--jupiter-size-px) / 3),
+    #dc9e83,
+    #674735
+  );
+}
+
+.sphere-saturn {
+  width: var(--saturn-size-px);
+  height: var(--saturn-size-px);
+  line-height: var(--saturn-size-px);
+  background: radial-gradient(
+    circle at calc(var(--saturn-size-px) / 3) calc(var(--saturn-size-px) / 3),
+    #d2b865,
+    #8a6c3e
+  );
+}
+
+.sphere-uranus {
+  width: var(--uranus-size-px);
+  height: var(--uranus-size-px);
+  line-height: var(--uranus-size-px);
+  background: radial-gradient(
+    circle at calc(var(--uranus-size-px) / 3) calc(var(--uranus-size-px) / 3),
+    #87d0d3,
+    #497ea6
+  );
+}
+
+.sphere-neptune {
+  width: var(--neptune-size-px);
+  height: var(--neptune-size-px);
+  line-height: var(--neptune-size-px);
+  background: radial-gradient(
+    circle at calc(var(--neptune-size-px) / 3) calc(var(--neptune-size-px) / 3),
+    #256c80,
+    #213169
+  );
+}
+
+#earth-pixels {
+  width: 3em;
+}
+
+.scale-marker {
+  width: 150px;
+  border-top: 1px solid white;
+  text-align: right;
+}
+
+#controls {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Martin Kapal" />
+    <meta
+      name="description"
+      content="A scaled representation of the solar system"
+    />
+    <title>Solar System to Scale</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <header class="fixed-pane" id="page-header">
+      <h1>Solar System to Scale</h1>
+
+      <nav>
+        <ul id="sphere-links">
+          <li><a href="#sun">Sun</a></li>
+          <li><a href="#mercury">Mercury</a></li>
+          <li><a href="#venus">Venus</a></li>
+          <li><a href="#moon">Moon</a></li>
+          <li><a href="#earth">Earth</a></li>
+          <li><a href="#mars">Mars</a></li>
+          <li><a href="#jupiter">Jupiter</a></li>
+          <li><a href="#saturn">Saturn</a></li>
+          <li><a href="#uranus">Uranus</a></li>
+          <li><a href="#neptune">Neptune</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="solar-system">
+      <div id="scale"></div>
+
+      <article class="sphere-with-label sun">
+        <h1 id="sun">Sun</h1>
+        <div class="sphere-box">
+          <figure class="sphere sphere-sun"></figure>
+        </div>
+      </article>
+
+      <article class="sphere-with-label mercury">
+        <h1 id="mercury">Mercury</h1>
+        <div class="sphere-box">
+          <figure class="sphere sphere-mercury"></figure>
+        </div>
+      </article>
+
+      <article class="sphere-with-label venus">
+        <h1 id="venus">Venus</h1>
+        <div class="sphere-box">
+          <figure class="sphere sphere-venus"></figure>
+        </div>
+      </article>
+
+      <article class="sphere-with-label earth">
+        <h1 id="earth">Earth</h1>
+        <div class="sphere-box">
+          <figure class="sphere sphere-earth"></figure>
+        </div>
+      </article>
+
+      <article class="sphere-with-label moon">
+        <h1 id="moon">Moon</h1>
+        <div class="sphere-box">
+          <figure class="sphere sphere-moon"></figure>
+        </div>
+      </article>
+
+      <article class="sphere-with-label mars">
+        <h1 id="mars">Mars</h1>
+        <div class="sphere-box">
+          <figure class="sphere sphere-mars"></figure>
+        </div>
+      </article>
+
+      <article class="sphere-with-label jupiter">
+        <h1 id="jupiter">Jupiter</h1>
+        <div class="sphere-box">
+          <figure class="sphere sphere-jupiter"></figure>
+        </div>
+      </article>
+
+      <article class="sphere-with-label saturn">
+        <h1 id="saturn">Saturn</h1>
+        <div class="sphere-box">
+          <figure class="sphere sphere-saturn"></figure>
+        </div>
+      </article>
+
+      <article class="sphere-with-label uranus">
+        <h1 id="uranus">Uranus</h1>
+        <div class="sphere-box">
+          <figure class="sphere sphere-uranus"></figure>
+        </div>
+      </article>
+
+      <article class="sphere-with-label neptune">
+        <h1 id="neptune">Neptune</h1>
+        <div class="sphere-box">
+          <figure class="sphere sphere-neptune"></figure>
+        </div>
+      </article>
+    </main>
+
+    <footer class="fixed-pane" id="page-footer">
+      <div id="controls">
+        <label>
+          🌍 Earth diameter in pixels
+          <input
+            id="earth-pixels"
+            type="number"
+            min="1"
+            max="100"
+            step="1"
+            value="10"
+          />
+        </label>
+        <label>
+          Scale distances
+          <input type="checkbox" id="distances" checked />
+        </label>
+      </div>
+      <a href="https://www.github.com/mkapal/solar-system-to-scale">GitHub</a>
+    </footer>
+  </body>
+</html>
