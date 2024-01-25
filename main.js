@@ -28,6 +28,7 @@ window.onload = () => {
 function updateScaleMarkers() {
   const documentStyles = window.getComputedStyle(document.documentElement);
   const scale = document.getElementById("scale");
+  const pxKm = document.getElementById("px-km");
   const earthDiameterKm = documentStyles.getPropertyValue("--earth-diameter");
   const distanceMultiplier = documentStyles.getPropertyValue(
     "--distance-multiplier",
@@ -56,6 +57,8 @@ function updateScaleMarkers() {
     div.innerHTML = formatNumber(i * markerDistanceInKm, "km");
     scale.appendChild(div);
   }
+
+  pxKm.innerHTML = `1 px = ${formatNumber((1 / scaleFactor).toFixed(0), "km")}`;
 }
 
 function formatNumber(number, unit) {
