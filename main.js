@@ -58,7 +58,10 @@ function updateScaleMarkers() {
     scale.appendChild(div);
   }
 
-  pxKm.innerHTML = `1 px = ${formatNumber((1 / scaleFactor).toFixed(0), "km")}`;
+  const pxToKmScale = 1 / scaleFactor;
+  const decimals = pxToKmScale > 10 ? 0 : 2;
+
+  pxKm.innerHTML = `1 px = ${formatNumber(pxToKmScale.toFixed(decimals), "km")}`;
 }
 
 function formatNumber(number, unit) {
